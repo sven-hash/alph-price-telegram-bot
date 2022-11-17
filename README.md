@@ -29,6 +29,10 @@ Written with node js so you need Node.js.Clone repo or download. Position inside
 npm install
 ```
 
+### Configure
+
+Create your env.js file inside src folder and put inside `process.env.TOKEN = "YOUR_TOKEN"` where YOUR_TOKEN is token you got from BotFather.
+
 ### Run
 
 ```
