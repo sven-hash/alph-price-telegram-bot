@@ -96,7 +96,7 @@ const getCoinData = async (long = false) => {
   }
 };
 
-const bot = new Telegraf(process.env.TOKEN_TEST);
+const bot = new Telegraf(process.env.TOKEN);
 
 bot.command("p", async (ctx) => {
   const coinData = await getCoinData();
