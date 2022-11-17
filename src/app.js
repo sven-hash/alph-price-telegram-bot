@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import { Telegraf } from "telegraf";
 import "./env.js";
+// in env.js you should have your token: process.env.TOKEN = "YOUR_TOKEN";
 
 const COINGECKO_API_URL = "https://api.coingecko.com/api/v3";
 const ALEPHIUM_API_URL = "https://backend-v18.mainnet.alephium.org";
