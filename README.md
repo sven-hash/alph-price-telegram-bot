@@ -8,7 +8,7 @@ Short stats: \
 ⏳1H: -0.65% \
 ⏳24H: -2.77% \
 ⏳7D: 1.47% \
-📊Volume: $28,040 \
+📊Volume: $28,040
 
 Long stats: \
 💲Price: $0.0614 \
