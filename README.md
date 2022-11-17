@@ -1,6 +1,6 @@
-#Alephium price bot
+# Alephium price bot
 
-Small bot for printing stats:
+Small bot for printing stats
 
 Short stats: \
 💲Price: $0.0614 \
@@ -20,3 +20,17 @@ Long stats: \
 🔓Circulating supply: 25.8M \
 🔐Reserved supply: 139.9M \
 💰Market cap: $1.6M
+
+### Installation
+
+Written with node js so you need Node.js.Clone repo or download. Position inside the folder nad run:
+
+```
+npm install
+```
+
+### Run
+
+```
+npm start
+```
