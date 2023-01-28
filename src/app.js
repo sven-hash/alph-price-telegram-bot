@@ -6,7 +6,13 @@ import "./env.js";
 const COINGECKO_API_URL = "https://api.coingecko.com/api/v3";
 const ALEPHIUM_API_URL = "https://backend-v18.mainnet.alephium.org";
 const ONE_MILLION = 1_000_000;
-
+function setTerminalTitle(title)
+{
+  process.stdout.write(
+    String.fromCharCode(27) + "]0;" + title + String.fromCharCode(7)
+  );
+}
+setTerminalTitle("Price_bot");
 const fetchData = async (url, errorMsg) => {
   try {
     const response = await fetch(url);
@@ -93,7 +99,7 @@ const getCoinData = async (long = false) => {
   } catch (error) {
     const errorMsg = `Error occured: ${error.message}`;
     console.log(errorMsg);
-    return errorMsg;
+    return "Error occured. Please try again.";
   }
 };
 
