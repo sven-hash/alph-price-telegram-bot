@@ -3,23 +3,25 @@
 Small bot for printing stats
 
 Short stats: \
-💲Price: $0.0614 \
-📈L: $0.0609 | H: $0.0664 \
-⏳1H: -0.65% \
-⏳24H: -2.77% \
-⏳7D: 1.47% \
-📊Volume: $28,040
+💸Price[USD]: $0.2999 \
+🤑Price[BTC]: 0.00001057 ₿ \
+📈L: $0.2398 | H: $0.3002 \
+⏳1H: 0.99% \
+⏳24H: 24.38% \
+⏳7D: 7.39% \
+📊Volume: $78,268
 
 Long stats: \
-💲Price: $0.0614 \
-📈L: $0.0609 | H: $0.0664 \
-⏳1H: -0.65% \
-⏳24H: -2.77% \
-⏳7D: 1.47% \
-📊Volume: $28,040 \
-🔓Circulating supply: 25.8M \
-🔐Reserved supply: 139.9M \
-💰Market cap: $1.6M
+💸Price[USD]: $0.2995 \
+🤑Price[BTC]: 0.00001055 ₿ \
+📈L: $0.2398 | H: $0.3002 \
+⏳1H: 0.81% \
+⏳24H: 24.24% \
+⏳7D: 7.28% \
+📊Volume: $78,117 \
+🔓Circulating supply: 36.5M \
+🔐Reserved supply: 137.2M \
+💰Market cap: $10.9M
 
 ### Installation
 
