@@ -4,7 +4,7 @@ import "./env.js";
 // in env.js you should have your token: process.env.TOKEN = "YOUR_TOKEN";
 
 const COINGECKO_API_URL = "https://api.coingecko.com/api/v3";
-const ALEPHIUM_API_URL = "https://backend-v18.mainnet.alephium.org";
+const ALEPHIUM_API_URL = "https://backend.mainnet.alephium.org";
 const ONE_MILLION = 1_000_000;
 function setTerminalTitle(title) {
   process.stdout.write(String.fromCharCode(27) + "]0;" + title + String.fromCharCode(7));
