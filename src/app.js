@@ -1,10 +1,11 @@
 import fetch from "node-fetch";
 import { Telegraf } from "telegraf";
 import "./env.js";
+import { respondWithChart, startFetchingCharts } from "./helpers/chartHelpers.js";
 // in env.js you should have your token: process.env.TOKEN = "YOUR_TOKEN";
 
 const COINGECKO_API_URL = "https://api.coingecko.com/api/v3";
-const ALEPHIUM_API_URL = "https://backend.mainnet.alephium.org";
+const ALEPHIUM_API_URL = "https://backend-v113.mainnet.alephium.org";
 const ONE_MILLION = 1_000_000;
 function setTerminalTitle(title) {
   process.stdout.write(String.fromCharCode(27) + "]0;" + title + String.fromCharCode(7));
@@ -104,21 +105,37 @@ const bot = new Telegraf(process.env.TOKEN);
 
 bot.command("p", async (ctx) => {
   const coinData = await getCoinData();
-
-  // Explicit usage
-  // await ctx.telegram.sendMessage(ctx.message.chat.id, coinData);
-
-  // Using context shortcut
   await ctx.sendMessage(coinData);
 });
 bot.command("plong", async (ctx) => {
   const coinData = await getCoinData(true);
-
-  // Explicit usage
-  // await ctx.telegram.sendMessage(ctx.message.chat.id, coinData);
-
-  // Using context shortcut
   await ctx.sendMessage(coinData);
+});
+
+startFetchingCharts();
+bot.command("chart", async (ctx) => {
+  const [interval, ...rest] = ctx.message.text.split(" ").slice(1);
+  switch (interval) {
+    case "5m":
+      respondWithChart(ctx, interval);
+      break;
+    case "15m":
+      respondWithChart(ctx, interval);
+      break;
+    case "1h":
+      respondWithChart(ctx, interval);
+      break;
+    case "4h":
+      respondWithChart(ctx, interval);
+      break;
+    case "1d":
+      respondWithChart(ctx, interval);
+      break;
+
+    default:
+      await ctx.sendMessage(`Options: 5m, 15m, 1h, 4h, 1d\nexample: /chart 5m`);
+      break;
+  }
 });
 
 bot.launch();
