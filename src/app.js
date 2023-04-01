@@ -101,41 +101,27 @@ const getCoinData = async (long = false) => {
   }
 };
 
-const bot = new Telegraf(process.env.TOKEN);
+const bot = new Telegraf(process.env.TOKEN_TEST);
 
+// short price
 bot.command("p", async (ctx) => {
   const coinData = await getCoinData();
+
+  // Explicit usage
+  // await ctx.telegram.sendMessage(ctx.message.chat.id, coinData);
+
+  // Using context shortcut
   await ctx.sendMessage(coinData);
 });
+// long price
 bot.command("plong", async (ctx) => {
   const coinData = await getCoinData(true);
+
+  // Explicit usage
+  // await ctx.telegram.sendMessage(ctx.message.chat.id, coinData);
+
+  // Using context shortcut
   await ctx.sendMessage(coinData);
-});
-
-startFetchingCharts();
-bot.command("chart", async (ctx) => {
-  const [interval, ...rest] = ctx.message.text.split(" ").slice(1);
-  switch (interval) {
-    case "5m":
-      respondWithChart(ctx, interval);
-      break;
-    case "15m":
-      respondWithChart(ctx, interval);
-      break;
-    case "1h":
-      respondWithChart(ctx, interval);
-      break;
-    case "4h":
-      respondWithChart(ctx, interval);
-      break;
-    case "1d":
-      respondWithChart(ctx, interval);
-      break;
-
-    default:
-      await ctx.sendMessage(`Options: 5m, 15m, 1h, 4h, 1d\nexample: /chart 5m`);
-      break;
-  }
 });
 
 bot.launch();
