@@ -45,7 +45,7 @@ export const getIntervalChart = async (browser, interval, index) => {
   const height = 1080 - 120,
     width = 1920 - 110;
   await page.screenshot({
-    path: `./chartImgs/${imgName}.png`,
+    path: `.src/chartImgs/${imgName}.png`,
     clip: { height: height, width: width, x: x, y: y },
   });
 

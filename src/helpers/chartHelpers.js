@@ -7,7 +7,7 @@ import { StopWatch } from "./stopWatch.js";
 export const respondWithChart = async (ctx, interval) => {
   const imgName = interval.includes("m") ? interval : interval.toUpperCase();
   try {
-    const image = fs.readFileSync(`./chartImgs/${imgName}.png`);
+    const image = fs.readFileSync(`.src/chartImgs/${imgName}.png`);
     await ctx.replyWithPhoto(
       {
         source: image,
