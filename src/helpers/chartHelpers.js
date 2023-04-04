@@ -39,7 +39,7 @@ const getAllCharts = async () => {
   console.log(stopWatch.durationToString("m", "Charts done!"));
 };
 
-const fetchInterval = 2; //minutes
+const fetchInterval = 4; //minutes
 export const startFetchingCharts = async () => {
   await getAllCharts();
   setInterval(async () => {
