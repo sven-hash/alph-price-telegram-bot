@@ -133,7 +133,9 @@ bot.command("chart", async (ctx) => {
       respondWithChart(ctx, interval);
       break;
     default:
-      await ctx.sendMessage(`Options: 5m, 15m, 1h, 4h, 1d\nexample: /chart 5m`);
+      await ctx.sendMessage(`Options: 5m, 15m, 1h, 4h, 1d\nexample: /chart 5m`, {
+        reply_to_message_id: ctx.message.message_id,
+      });
       break;
   }
 });
