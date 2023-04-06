@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import { Telegraf } from "telegraf";
 import "./env.js";
 import { respondWithChart, startFetchingCharts } from "./helpers/chartHelpers.js";
@@ -100,7 +99,7 @@ const getCoinData = async (long = false) => {
   }
 };
 
-const bot = new Telegraf(process.env.TOKEN);
+const bot = new Telegraf(process.env.TOKEN_TEST);
 
 // short price
 bot.command("p", async (ctx) => {

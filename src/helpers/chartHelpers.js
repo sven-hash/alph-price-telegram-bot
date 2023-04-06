@@ -34,12 +34,13 @@ const getAllCharts = async () => {
   for (const [index, i] of intervals.entries()) {
     await getIntervalChart(browser, i, index);
   }
+  console.log("Numb of pages: ", (await browser.pages()).length);
   await browser.close();
   stopWatch.stop();
   console.log(stopWatch.durationToString("m", "Charts done!"));
 };
 
-const fetchInterval = 4; //minutes
+const fetchInterval = 1; //minutes
 export const startFetchingCharts = async () => {
   await getAllCharts();
   setInterval(async () => {
