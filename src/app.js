@@ -1,7 +1,8 @@
 import { Telegraf } from "telegraf";
-import "./env.js";
+import * as dotenv from "dotenv";
+dotenv.config({ path: "./src/.env" });
+// in .env you should have your token: TOKEN = "YOUR_TOKEN"
 import { respondWithChart, startFetchingCharts } from "./helpers/chartHelpers.js";
-// in env.js you should have your token: process.env.TOKEN = "YOUR_TOKEN";
 
 const COINGECKO_API_URL = "https://api.coingecko.com/api/v3";
 const ALEPHIUM_API_URL = "https://backend-v113.mainnet.alephium.org";
@@ -99,7 +100,7 @@ const getCoinData = async (long = false) => {
   }
 };
 
-const bot = new Telegraf(process.env.TOKEN_TEST);
+const bot = new Telegraf(process.env.TOKEN);
 
 // short price
 bot.command("p", async (ctx) => {

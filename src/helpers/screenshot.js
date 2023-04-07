@@ -15,10 +15,11 @@ export const getIntervalChart = async (browser, interval, index) => {
     await page.waitForSelector(".layout__area--topleft [data-role='button']", {
       timeout: 0,
     });
+    //open menu
     await page.$eval(".layout__area--topleft [data-role='button']", (menu) => {
       menu.click();
     });
-    // await page.waitForSelector("[value='themeSwitcher']", { timeout: 0 });
+    // select dark mode
     await page.$eval("[value='themeSwitcher']", (darkmode) => {
       darkmode.click();
     });
@@ -30,7 +31,7 @@ export const getIntervalChart = async (browser, interval, index) => {
     await sleep(2);
   }
 
-  // click to open watchlist
+  // click to open watchlist (closing the watchlist has bug, so this way is easier to screenshot)
   await page.waitForSelector("[data-name='base']", { timeout: 0 });
   await page.$eval("[data-name='base']", (watchList) => {
     if (Array.from(watchList.classList).some((clas) => clas.includes("isActive")))
