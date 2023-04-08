@@ -33,7 +33,7 @@ npm install
 
 ### Configure
 
-Create your env.js file inside src folder and put inside `process.env.TOKEN = "YOUR_TOKEN"` where YOUR_TOKEN is token you got from BotFather.
+Create your .env file inside src folder and put inside `TOKEN = "YOUR_TOKEN"` where YOUR_TOKEN is token you got from BotFather.
 
 ### Run
 
