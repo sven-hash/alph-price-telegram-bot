@@ -23,13 +23,13 @@ export const respondWithChart = async (ctx, interval) => {
 
 // GET ALL CHARTS
 const intervals = ["5", "15", "1H", "4H", "1D"];
-const getAllCharts = async (browser) => {
+const getAllCharts = async (browser, shouldTurnDarkMode = false) => {
   try {
     const stopWatch = new StopWatch();
     stopWatch.start();
     console.log("Start fetching charts....");
-    for (const [index, i] of intervals.entries()) {
-      await getIntervalChart(browser, i, index);
+    for (const [index, interval] of intervals.entries()) {
+      await getIntervalChart(browser, interval, index, shouldTurnDarkMode);
     }
     stopWatch.stop();
     console.log(stopWatch.durationToString("m", "Charts done!"));
@@ -46,7 +46,7 @@ export const startFetchingCharts = async () => {
     defaultViewport: { height: 1080, width: 1920 },
   });
 
-  await getAllCharts(browser);
+  await getAllCharts(browser, true);
   setInterval(async () => {
     await getAllCharts(browser);
   }, fetchInterval * 60 * 1000);

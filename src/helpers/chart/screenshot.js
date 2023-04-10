@@ -2,7 +2,7 @@ const sleep = async (seconds) => {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 };
 
-export const getIntervalChart = async (browser, interval, index) => {
+export const getIntervalChart = async (browser, interval, index, shouldTurnDarkMode) => {
   try {
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(0);
@@ -11,8 +11,8 @@ export const getIntervalChart = async (browser, interval, index) => {
       { waitUntil: "networkidle2" }
     );
     await sleep(2);
-    // select dark mode just when you first open the browser
-    if (index === 0) {
+    // select dark mode just when you first open the browser and for the first interval
+    if (index === 0 && shouldTurnDarkMode) {
       await page.waitForSelector(".layout__area--topleft [data-role='button']", {
         timeout: 0,
       });
