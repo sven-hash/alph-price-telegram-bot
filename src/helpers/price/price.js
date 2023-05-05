@@ -89,3 +89,12 @@ export const getCoinData = async (long = false) => {
     return "Error occured. Please try again.";
   }
 };
+
+export const deleteOrSendPrice = async (message, ctx) => {
+  if (message === "Error occured. Please try again.") {
+    // delete after 1 minute
+    const { message_id } = await ctx.sendMessage(message);
+    setTimeout(() => ctx.deleteMessage(message_id), 60000);
+    // if no error then send it and dont delete
+  } else await ctx.sendMessage(message);
+};

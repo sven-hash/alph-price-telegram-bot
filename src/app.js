@@ -4,7 +4,7 @@ dotenv.config({ path: "./src/.env" });
 // in .env you should have your token: TOKEN = "YOUR_TOKEN"
 
 import { respondWithChart, startFetchingCharts } from "./helpers/chart/chart.js";
-import { getCoinData } from "./helpers/price/price.js";
+import { deleteOrSendPrice, getCoinData } from "./helpers/price/price.js";
 
 // set terminal name to price_bot (for windows run price_bot instead of "npm start" name)
 function setTerminalTitle(title) {
@@ -17,12 +17,12 @@ const bot = new Telegraf(process.env.TOKEN);
 // short price
 bot.command("p", async (ctx) => {
   const coinData = await getCoinData();
-  await ctx.sendMessage(coinData);
+  await deleteOrSendPrice(coinData, ctx);
 });
 // long price
 bot.command("plong", async (ctx) => {
   const coinData = await getCoinData(true);
-  await ctx.sendMessage(coinData);
+  await deleteOrSendPrice(coinData, ctx);
 });
 // charts
 startFetchingCharts();

@@ -17,7 +17,8 @@ export const respondWithChart = async (ctx, interval) => {
   } catch (error) {
     const errorMsg = `Can't get chart for ${imgName}`;
     console.log(errorMsg);
-    await ctx.sendMessage(errorMsg);
+    const { message_id } = await ctx.sendMessage(errorMsg);
+    setTimeout(() => ctx.deleteMessage(message_id), 60000);
   }
 };
 
