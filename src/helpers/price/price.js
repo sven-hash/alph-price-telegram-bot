@@ -1,3 +1,5 @@
+import { warnningAyin } from "../ayin/ayin.js";
+
 const COINGECKO_API_URL = "https://api.coingecko.com/api/v3";
 const ALEPHIUM_API_URL = "https://backend-v113.mainnet.alephium.org";
 const ONE_MILLION = 1_000_000;
@@ -25,7 +27,7 @@ const getSupply = async (typeOfSupply) => {
   }
 };
 
-const getMarketData = async () => {
+export const getMarketData = async () => {
   try {
     const data = await fetchData(
       `${COINGECKO_API_URL}/coins/alephium`,
@@ -91,10 +93,16 @@ export const getCoinData = async (long = false) => {
 };
 
 export const deleteOrSendPrice = async (message, ctx) => {
-  if (message === "Error occured. Please try again.") {
+  if (
+    message === "Error occured. Please try again." ||
+    message === warrningPrice ||
+    message === warnningAyin
+  ) {
     // delete after 1 minute
     const { message_id } = await ctx.sendMessage(message);
     setTimeout(() => ctx.deleteMessage(message_id), 60000);
     // if no error then send it and dont delete
   } else await ctx.sendMessage(message);
 };
+
+export const warrningPrice = `Options: 5m, 15m, 1h, 4h, 1d\nexample: /chart 5m`;
